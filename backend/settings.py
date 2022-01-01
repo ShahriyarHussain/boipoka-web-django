@@ -14,7 +14,6 @@ import datetime
 # import django_heroku
 import dj_database_url
 
-env = environ.Env()
 # Reading .env file
 environ.Env.read_env()
 
@@ -26,7 +25,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = config('SECRET_KEY')
+SECRET_KEY = os.environ('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
@@ -125,7 +124,8 @@ WSGI_APPLICATION = 'backend.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
-DATABASES = {'default': dj_database_url.config(default=config('DATABASE_URL'))}
+DATABASES = {'default': dj_database_url.config(
+    default=os.environ('DATABASE_URL'))}
 
 
 # Password validation
@@ -188,5 +188,9 @@ DJANGORESIZED_DEFAULT_KEEP_META = False
 DJANGORESIZED_DEFAULT_FORCE_FORMAT = 'PNG'
 DJANGORESIZED_DEFAULT_FORMAT_EXTENSIONS = {'PNG': ".png"}
 DJANGORESIZED_DEFAULT_NORMALIZE_ROTATION = False
+
+
+prod_db = dj_database_url.config(conn_max_age=500)
+DATABASES['default'].update(prod_db)
 
 # django_heroku.settings(locals())
