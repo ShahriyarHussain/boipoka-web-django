@@ -15,6 +15,8 @@ import datetime
 import dj_database_url
 
 # Reading .env file
+env = environ.Env()
+# Reading .env file
 environ.Env.read_env()
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
