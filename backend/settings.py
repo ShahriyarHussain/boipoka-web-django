@@ -94,8 +94,9 @@ JWT_AUTH = {
 
 
 CORS_ORIGIN_WHITELIST = [
-    'http://localhost:3000',
-    'http://localhost:8000',
+    '127.0.0.1',
+    'https://boipoka-web-reactjs.herokuapp.com',
+    'https://boipoka-web-reactjs.herokuapp.com',
 ]
 
 CORS_ALLOW_CREDENTIALS = True
