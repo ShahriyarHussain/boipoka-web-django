@@ -109,4 +109,7 @@ dmypy.json
 # Pyre type checker
 .pyre/
 
+# vscode files
+.vscode
+
 # See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
