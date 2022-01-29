@@ -85,7 +85,7 @@ JWT_AUTH = {
     'JWT_RESPONSE_PAYLOAD_HANDLER':
     'backend.utils.custom_jwt_response_handler',
 
-    'JWT EXPIRATIONS DELTA': datetime.timedelta(seconds=6000),
+    'JWT EXPIRATIONS DELTA': datetime.timedelta(days=7),
 }
 
 
